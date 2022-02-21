@@ -5,12 +5,18 @@ const mongoose = require("mongoose");
 app.use(express.json());
 app.use(cors());
 const dataModel = require("./models/UserData");
+const dotenv = require('dotenv');
+dotenv.config();
+const port = process.env.PORT || 3000;
+
 // const infoModel = require("./models/info")
+
 
 mongoose.connect("mongodb+srv://atharva1bokade:456abc123@information.hwmdy.mongodb.net/information?retryWrites=true&w=majority",
  {
     useNewUrlParser: true,
 });
+
 
 app.post("/add", async (req,res)=>{
     const userName = req.body.userName;
@@ -136,6 +142,6 @@ app.get("/requests2",  (req,res)=>{
 //     });
    
 //    });
-app.listen(3001, ()=>{
-    console.log("Server running on port 3001");
+app.listen(port, ()=>{
+    console.log("Server running on port "+port);
 });
