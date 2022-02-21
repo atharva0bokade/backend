@@ -11,7 +11,7 @@ const port = process.env.PORT || 3000;
 
 // const infoModel = require("./models/info")
 
-
+console.log("It is Working");
 mongoose.connect("mongodb+srv://atharva1bokade:456abc123@information.hwmdy.mongodb.net/information?retryWrites=true&w=majority",
  {
     useNewUrlParser: true,
@@ -78,7 +78,7 @@ app.get("/rejected",  (req,res)=>{
    });
    
    
-   
+   console.log("It is Working");
  app.get("/requests1",  (req,res)=>{
     dataModel.find({time:"9am to 10am",approve:"Not Approved"},(err,result)=>{
    if(err){
