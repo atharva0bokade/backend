@@ -37,6 +37,7 @@ app.put("/approve", async (req,res)=>{
     const new_approve = req.body.approve;
     const id=req.body.id;
     
+    
     try{
         await dataModel.findById(id,(err,update_appr)=>{
                 update_appr.approve = new_approve;
@@ -78,7 +79,7 @@ app.get("/rejected",  (req,res)=>{
    });
    
    
-   console.log("It is Working");
+   
  app.get("/requests1",  (req,res)=>{
     dataModel.find({time:"9am to 10am",approve:"Not Approved"},(err,result)=>{
    if(err){
@@ -133,6 +134,41 @@ app.get("/requests2",  (req,res)=>{
     });
    
    });
+   app.put("/email_sending", async (req,res)=>{
+    const new_email_send = req.body.email_send;
+    const id=req.body.id;
+    
+    
+    try{
+        await dataModel.findById(id,(err,update_email_send)=>{
+                update_email_send.email_send = new_email_send;
+                update_email_send.save();
+                res.send("Updated");
+        });
+   
+} catch(err){
+    console.log(err);
+}
+});
+   app.get("/email_s",  (req,res)=>{
+    dataModel.find({email_send:"Elligible"},(err,result)=>{
+   if(err){
+       res.send(err);
+   }
+     res.send(result);
+    });
+   
+   });
+   app.get("/time_cancel",  (req,res)=>{
+    adjustschema.find({},(err,result)=>{
+   if(err){
+       res.send(err);
+   }
+     res.send(result);
+    });
+   
+   });
+   
 //    app.get("/status",  (req,res)=>{
 //     dataModel.find({userName:req.body.name},(err,result)=>{
 //    if(err){
