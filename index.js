@@ -11,7 +11,7 @@ const port = process.env.PORT || 3000;
 
 // const infoModel = require("./models/info")
 
-console.log("It is Working");
+console.log("It is Working for the new server");
 mongoose.connect("mongodb+srv://atharva1bokade:456abc123@information.hwmdy.mongodb.net/information?retryWrites=true&w=majority",
  {
     useNewUrlParser: true,
